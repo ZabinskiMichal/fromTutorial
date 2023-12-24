@@ -4,9 +4,20 @@ const express = require('express')
 const mongoose = require('mongoose')
 const workoutRoutes = require('./routes/workouts')
 const userRoutes = require('./routes/user')
+const cors = require('cors');
+
 
 // express app
 const app = express()
+
+
+// Configure CORS
+const corsOptions = {
+  origin: 'https://frontend-c87y.onrender.com'
+};
+
+// Enable CORS for requests from the specified origin
+app.use(cors(corsOptions));
 
 // middleware
 app.use(express.json())
